@@ -1,14 +1,12 @@
-from src.property import Property
 from src.utils import *
-from app import properties
 import json
 from tests.test_data.new_epc_dummy_data import epc_dummy_data
-from src.variables import EPC_TOKEN
+
 
 uprn = "100061342030"
 
 QUERY_PARAMS = "uprn=200002791&uprn=100061342030"
-HEADERS = {"Accept": "application/json", "Authorization": f"Basic {EPC_TOKEN}"}
+HEADERS = {"Accept": "application/json", "Authorization": f"Basic EPC_TOKEN"}
 
 def test_get_attributes_from_epc(mocker):
     mocker.patch("src.utils.epc_api_call", return_value=epc_dummy_data)
@@ -29,3 +27,4 @@ def test_get_attributes_from_epc(mocker):
             break
     assert prop.epc_rating == matching_row["current-energy-rating"]
     assert prop.epc_score == matching_row["current-energy-efficiency"]
+    assert prop.energy_usage == matching_row["energy-consumption-current"]

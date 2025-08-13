@@ -1,0 +1,46 @@
+#cloud-config
+package_update: true
+packages:
+  - nginx
+  - git
+  - docker.io
+
+write_files:
+  - path: /etc/nginx/sites-available/my-site.conf
+    permissions: '0644'
+    content: |
+      server {
+        listen 80;
+        server_name _;
+
+        location / {
+            proxy_pass http://127.0.0.1:8080;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+      }
+
+runcmd:
+  - ln -s /etc/nginx/sites-available/my-site.conf /etc/nginx/sites-enabled/
+  - rm /etc/nginx/sites-enabled/default
+  - systemctl restart nginx
+
+  - systemctl start docker
+  - systemctl enable docker
+
+  - git clone https://github.com/ptreedev/Hard_to_heat_homes_2.0 /home/ubuntu/Hard_to_heat_homes_2.0
+
+  - |
+    cat > /home/ubuntu/Hard_to_heat_homes_2.0/.env << 'EOF'
+    EPC_ENCODED_API_KEY=${epc_api_key}
+    OS_API_KEY=${os_api_key}
+    EOF
+
+  - docker build -t myapp:latest /home/ubuntu/Hard_to_heat_homes_2.0
+
+  - docker stop myapp || true
+  - docker rm myapp || true
+
+  - docker run -d -p 8080:8080 --name myapp myapp:latest

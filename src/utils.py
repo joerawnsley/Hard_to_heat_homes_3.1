@@ -42,6 +42,7 @@ def get_attributes_from_epc(prop, uprn):
         row = epc_data_by_uprn.get(str(prop.uprn))
         prop.epc_rating = row["current-energy-rating"]
         prop.epc_score = row["current-energy-efficiency"]
+        prop.energy_usage = row["energy-consumption-current"]
 
 def format_urpn_from_property(uprn):
     return f"uprn={uprn}"

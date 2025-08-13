@@ -6,6 +6,8 @@ lib/
 cli/
 .pytest_cache/
 __pycache__/
+src/__pycache__/
+src/__pycache__/*
 node_modules/
 include/
 argv.json
@@ -15,4 +17,8 @@ pyvenv.cfg
 data/bdline_gpkg_gb
 data/onsud_apr_2025
 data/uprn_to_council_data_SE.csv
-
+.ssh
+.terraform
+*.tfstate
+.terraform.lock.hcl
+*.tfstate.backup

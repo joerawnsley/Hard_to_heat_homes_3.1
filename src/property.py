@@ -1,4 +1,4 @@
-MINIMUM_EPC_RATING = "C"
+MINIMUM_EPC_RATING = "D"
 MINIMUM_FAILING_AGE = 1959
 COLD_CONNECTIVITY = "Standalone"
 WARM_MATERIALS = ["Brick Or Block Or Stone", "Contrete"]
@@ -6,8 +6,8 @@ WARM_MATERIALS = ["Brick Or Block Or Stone", "Contrete"]
 class Property():
     def __init__(self, uprn):
         self.uprn = uprn
-        self.epc_rating = 'No Rating'
-        self.epc_score = 'No Score'
+        self.epc_rating = 'No Rating Found'
+        self.epc_score = 'No Score Found'
         self.address = ''
         self.age = 0
         self.connectivity = ''
@@ -22,6 +22,7 @@ class Property():
         self.roof_southeast_area = 0
         self.roof_solar_panel_presence = ''
         self.roof_material = ''
+        self.energy_usage = 'No Usage Found'
 
     def calculate_score(self):
         score = 0

@@ -58,10 +58,12 @@ def test_property_has_correct_attributes_from_mock_api_call(mock_epc_api_call):
     dummy_property.uprn = "200002791"
     dummy_property.epc_score = "63"
     dummy_property.address = "30 Alexandra Road, Muswell Hill, N10 2RT"
+    dummy_property.energy_usage = "314"
     assert dummy_property.epc_rating == "D"
     assert dummy_property.uprn == "200002791"
     assert dummy_property.epc_score == "63"
     assert dummy_property.address == "30 Alexandra Road, Muswell Hill, N10 2RT"
+    assert dummy_property.energy_usage == "314"
 
 def test_get_properties_from_os_updates_property_data(mocker):
     mock_get = mocker.patch("src.os_api.requests.get")

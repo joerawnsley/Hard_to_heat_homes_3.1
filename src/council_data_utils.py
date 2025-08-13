@@ -4,7 +4,7 @@ import json
 
 with open("data/councils_bbox_data.json") as bbox_json:
         bbox_data = json.load(bbox_json)
-df = pd.read_csv("data/uprn_to_council_data_SE.csv", dtype={"UPRN": str, "COUNCIL_CODE": str})
+df = pd.read_csv("data/uprn_to_council_data_SE_DEMO.csv", dtype={"UPRN": str, "COUNCIL_CODE": str})
 
 #use dictionary for speed
 uprn_to_council_dict = pd.Series(df.COUNCIL_CODE.values, index=df.UPRN).to_dict()
