@@ -1,5 +1,5 @@
 from src.property import Property
-from src.epc_api import epc_api_call
+from src.epc_api import epc_api_call, epc_api_call_address
 from src.variables import EPC_TOKEN
 from src.os_api import os_places_api_call
 
@@ -23,29 +23,15 @@ def get_properties_from_os(list_of_buildings):
             new_prop.lat = coordinates[1]
             new_prop.building_id = building["sitereference"][0]["buildingid"]
             new_prop.roof_shape = building["roofshapeaspect_shape"]
-            new_prop.roof_pitched_area = building['roofshapeaspect_areapitched_m2']
-            new_prop.roof_southeast_area = building["roofshapeaspect_areafacingsoutheast_m2"]
+            new_prop.roof_pitched_area_m2 = building['roofshapeaspect_areapitched_m2']
+            new_prop.roof_southeast_area_m2 = building["roofshapeaspect_areafacingsoutheast_m2"]
             new_prop.roof_solar_panel_presence = building["roofmaterial_solarpanelpresence"]
             new_prop.roof_material = building["roofmaterial_primarymaterial"]
+            new_prop.height_relative_roof_base_m = building["height_relativeroofbase_m"]
+            new_prop.green_roof_presence = building["roofmaterial_greenroofpresence"]
             list_of_properties.append(new_prop)
 
     return list_of_properties
-
-
-def get_attributes_from_epc(prop, uprn):
-    epc_params = format_urpn_from_property(uprn)
-    epc_result = epc_api_call(
-        {"Accept": "application/json", "Authorization": f"Basic {EPC_TOKEN}"}, epc_params
-    )
-    if epc_result:
-        epc_data_by_uprn = {row["uprn"]: row for row in epc_result["rows"]}
-        row = epc_data_by_uprn.get(str(prop.uprn))
-        prop.epc_rating = row["current-energy-rating"]
-        prop.epc_score = row["current-energy-efficiency"]
-        prop.energy_usage = row["energy-consumption-current"]
-
-def format_urpn_from_property(uprn):
-    return f"uprn={uprn}"
 
 def set_missing_addresses(property):
     if not property.address:
@@ -68,5 +54,35 @@ def filter_for_void(list_of_properties):
 
     return void_properties
 
+def get_attributes_from_epc(properties):
+    uprns = [p.uprn for p in properties]
+    
+    uprn_to_epc_data = {}
+    batch_size = 50
+    for i in range(0, len(uprns), batch_size):
+        batch = uprns[i:i+batch_size]
+        params = [("uprn",u) for u in batch]
+        response = epc_api_call_address(params)  
 
+        if not response:
+            break
+        
+        uprn_to_address_batch = {row["uprn"]: 
+                                {
+                                "address": f"{row["address"]}, {row["county"]}, {row['postcode']}",
+                                "rating": f"{row["current-energy-rating"]}",
+                                "score": f"{row["current-energy-efficiency"]}",
+                                "consumption": f"{row["energy-consumption-current"]}"
+                                }
+                                 for row in response["rows"]}
+                               
+        uprn_to_epc_data.update(uprn_to_address_batch)
 
+    for p in properties:
+        if str(p.uprn) in uprn_to_epc_data:
+            p.address = uprn_to_epc_data[str(p.uprn)]["address"]
+            p.epc_rating = uprn_to_epc_data[str(p.uprn)]["rating"]
+            p.epc_score = uprn_to_epc_data[str(p.uprn)]["score"]
+            p.energy_usage = uprn_to_epc_data[str(p.uprn)]["consumption"]
+
+    return properties
