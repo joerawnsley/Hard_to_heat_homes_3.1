@@ -1,8 +1,9 @@
 const markersDict = {}; 
+let map;
 
 function initMap() {
     const firstProp = mapData.props[0];
-    const map = L.map('map').setView([firstProp.lat, firstProp.long], 13);
+    map = L.map('map').setView([firstProp.lat, firstProp.long], 13);
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
