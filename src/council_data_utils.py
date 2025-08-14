@@ -51,6 +51,15 @@ def get_bbox_for_council_code(council_code):
         return bbox_string
     else:
         return False
+    
+def get_formatted_bbox_for_council_code(council_code):
+    match = next ((entry for entry in bbox_data if entry["census_code"] == council_code),None)
+    if match:
+        bbox_dict = match["bbox"]
+        bbox_values = (bbox_dict['minx'], bbox_dict['miny'], bbox_dict['maxx'], bbox_dict['maxy'])
+        return bbox_values
+    else:
+        return False
 
 def _create_uprn_council_data():
      

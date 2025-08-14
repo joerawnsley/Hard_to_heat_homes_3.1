@@ -3,6 +3,7 @@ from src.os_api import os_api_call
 from src.utils import get_properties_from_os, setting_void_properties, get_attributes_from_epc
 from src.variables import OS_KEY
 from src.council_data_utils import get_bbox_for_council_code, filter_properties_by_council_code
+from src.generate_heat_map import generate_heat_map
 
 app = Flask(__name__)
 
@@ -30,7 +31,8 @@ for i in range(len(properties)):
 
 @app.route("/")
 def home():
-   return render_template("home.html", properties=properties, key=OS_KEY)
+   heat_map = generate_heat_map(elbmridge_council_code)
+   return render_template("home.html", properties=properties, key=OS_KEY, heat_map=heat_map)
 
 @app.route("/<int:uprn>")
 def property(uprn):

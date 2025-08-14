@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
+
   <div class="govuk-grid-row">
     <div>
       <h1 class="govuk-heading-l">Hard to Heat Homes</h1>
+      <img src="{{ heat_map }}" alt="Plot" style="margin-bottom: 20px;" />
       <div class="map-container">
   <div id="map"></div>
   <div id="map-legend">
@@ -81,6 +83,7 @@
     };
 </script>
 <script src="{{ url_for('static', filename='javascripts/hard_to_heat_map.js') }}"></script>
+
 
   {% endblock %}
 
