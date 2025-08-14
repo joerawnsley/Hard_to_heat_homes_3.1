@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+import os
+from flask import Flask, render_template, request, redirect, url_for, session
 from src.os_api import os_api_call
 from src.utils import get_properties_from_os, setting_void_properties, get_attributes_from_epc
 from src.variables import OS_KEY
@@ -7,24 +8,22 @@ from src.council_data_utils import get_bbox_for_council_code, filter_properties_
 app = Flask(__name__)
 
 properties = []
-council_code = ""
+
+app.secret_key = os.getenv("SESSION_SECRET_KEY")
 
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        global council_code
-        council_code = request.form.get("council")
+        current_council_code = session.get("council_code")
+        new_council_code = request.form.get("council")
+        if current_council_code != new_council_code:
+            session["council_code"] = new_council_code
+            council_bbox = get_bbox_for_council_code(new_council_code)
+            set_property_data(new_council_code, council_bbox)
         return redirect(url_for("home"))
     return render_template("login.html")
 
-def change_council_code():
-    #update council code
-    #call load properites
-    return
-
-def load_properties(council_code):
-    council_bbox = get_bbox_for_council_code(council_code)
-
+def set_property_data(council_code, council_bbox):
     HEADERS = {"Accept": "application/json"}
     PARAMS = {
         "key": OS_KEY,
@@ -32,22 +31,20 @@ def load_properties(council_code):
         "bbox": council_bbox,
          }
 
-    #global properties
-    if len(properties) == 0:
-        list_of_buildings = os_api_call(HEADERS, PARAMS)["features"]
-        properties = get_properties_from_os(list_of_buildings)
-        properties = filter_properties_by_council_code(council_code, properties)
-        properties = get_attributes_from_epc(properties)
-        
-        for i in range(len(properties)):
-            properties[i].calculate_score()
+    global properties
+    
+    list_of_buildings = os_api_call(HEADERS, PARAMS)["features"]
+    properties = get_properties_from_os(list_of_buildings)
+    properties = filter_properties_by_council_code(council_code, properties)
+    properties = get_attributes_from_epc(properties)
+    
+    for i in range(len(properties)):
+        properties[i].calculate_score()
+    
+    return 
 
 @app.route("/home")
 def home():
-    
-    global council_code
-    
-        
     return render_template("home.html", properties=properties, key=OS_KEY)
 
 @app.route("/<int:uprn>")
