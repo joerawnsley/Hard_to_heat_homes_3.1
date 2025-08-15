@@ -60,6 +60,8 @@ def generate_base64_image(fig):
 def generate_heat_map(council_code):
     bbox = get_formatted_bbox_for_council_code(council_code)
     gdf = load_consumption_data(bbox)
+    if gdf is None or gdf.empty:
+        return None
     substations = aggregate_substation_data(gdf)
     council_name = council_code_to_council_name[council_code]
     fig = plot_heatmap(substations, f"{council_name}'s Energy Consumption at 7pm on 14th July 2024")
