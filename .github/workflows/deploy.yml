@@ -66,7 +66,7 @@ jobs:
           TF_VAR_os_api_key: ${{ secrets.OS_API_KEY }}
           TF_VAR_session_secret_key: ${{ secrets.SESSION_SECRET_KEY  }}
 
-        run: terraform plan
+        run: terraform plan -lock=false
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
@@ -75,4 +75,4 @@ jobs:
           TF_VAR_os_api_key: ${{ secrets.OS_API_KEY }}
           TF_VAR_session_secret_key: ${{ secrets.SESSION_SECRET_KEY  }}
         run: |
-          terraform apply -auto-approve 
+          terraform apply -auto-approve -lock=false
