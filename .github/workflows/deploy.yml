@@ -3,7 +3,7 @@ name: Hard to Heat Homes Test & Deploy
 on:
   push:
     branches:
-      - main
+      - HtHH-3.0-Liam
 
 permissions:
   id-token: write  
