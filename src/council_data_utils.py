@@ -7,12 +7,12 @@ from shapely.geometry import shape
 with open("data/councils_bbox_data_DEMO.json") as bbox_json:
     councils_data = json.load(bbox_json)
 
-COUNCIL_CSV_MAP = {
+"""
+Add in your census code as a key and pair it to the relevant CSV file
+in your project directory as the value
+"""
 
-    """
-    Add in your census code as a key and pair it to the relevant CSV file
-    in your project directory as the value
-    """
+COUNCIL_CSV_MAP = {
 
     "E06000023": "data/uprn_to_council_SW.csv",   # Bristol
     "default": "data/uprn_to_council_data_SE_DEMO.csv" # South East Data Set
