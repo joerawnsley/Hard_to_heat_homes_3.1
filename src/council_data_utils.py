@@ -8,8 +8,14 @@ with open("data/councils_bbox_data_DEMO.json") as bbox_json:
     councils_data = json.load(bbox_json)
 
 COUNCIL_CSV_MAP = {
+
+    """
+    Add in your census code as a key and pair it to the relevant CSV file
+    in your project directory as the value
+    """
+
     "E06000023": "data/uprn_to_council_SW.csv",   # Bristol
-    "default": "data/uprn_to_council_data_SE_DEMO.csv" # All others
+    "default": "data/uprn_to_council_data_SE_DEMO.csv" # South East Data Set
 }
 
 def load_uprn_to_council(council_code):
@@ -43,10 +49,6 @@ def get_formatted_bbox_for_council_code(council_code):
 
 def filter_properties_by_council_code(council_code, properties):
 
-    """
-    Creates new list using properties object 
-
-    """
     uprn_to_council_dict = load_uprn_to_council(council_code)
     return [
         prop for prop in properties
