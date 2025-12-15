@@ -1,6 +1,7 @@
-{
-    "type": "FeatureCollection",
-    "links": [
+[
+    {
+        "type": "FeatureCollection",
+        "links": [
         {
             "href": "https://api.os.uk/features/ngd/ofa/v1/collections/bld-fts-building-4/items?limit=3&bbox=-0.372438,51.405655,-0.371885,51.40600&filter=buildinguse_oslandusetiera%20%3D%20%27Residential%20Accommodation%27%20AND%20mainbuildingid_ismainbuilding%20%3D%20%27Yes%27&key=4SmWiZd7GWsvQqZGGq1FjZGe3LnBYT01",
             "rel": "self",
@@ -13,10 +14,10 @@
             "type": "application/geo+json",
             "title": "Next page"
         }
-    ],
-    "timeStamp": "2025-07-30T15:25:29.145777797Z",
-    "numberReturned": 3,
-    "features": [
+        ],
+        "timeStamp": "2025-07-30T15:25:29.145777797Z",
+        "numberReturned": 3,
+        "features": [
         {
             "id": "51f49b14-8ead-4bc2-b06a-8c353e106188",
             "type": "Feature",
@@ -466,5 +467,488 @@
                 "constructionmaterial_thirdpartyprovenance": "Domestic Energy Performance Certificate (England And Wales)"
             }
         }
-    ]
+        ]
+    },
+    {
+  "type": "FeatureCollection",
+  "links": [
+    {
+      "href": "https://api.os.uk/features/ngd/ofa/v1/collections/bld-fts-building-4/items?offset=3&limit=3&bbox=-2.65,51.43,-2.55,51.47&filter=buildinguse_oslandusetiera%20%3D%20%27Residential%20Accommodation%27%20AND%20mainbuildingid_ismainbuilding%20%3D%20%27Yes%27&key=4SmWiZd7GWsvQqZGGq1FjZGe3LnBYT01",
+      "rel": "self",
+      "type": "application/geo+json",
+      "title": "All features from the 'Building v4' collection within bounding box: -2.65,51.43,-2.55,51.47"
+    },
+    {
+      "href": "https://api.os.uk/features/ngd/ofa/v1/collections/bld-fts-building-4/items?limit=3&bbox=-2.65,51.43,-2.55,51.47&filter=buildinguse_oslandusetiera%20%3D%20%27Residential%20Accommodation%27%20AND%20mainbuildingid_ismainbuilding%20%3D%20%27Yes%27&key=4SmWiZd7GWsvQqZGGq1FjZGe3LnBYT01",
+      "rel": "prev",
+      "type": "application/geo+json",
+      "title": "Previous page"
+    },
+    {
+      "href": "https://api.os.uk/features/ngd/ofa/v1/collections/bld-fts-building-4/items?offset=6&limit=3&bbox=-2.65,51.43,-2.55,51.47&filter=buildinguse_oslandusetiera%20%3D%20%27Residential%20Accommodation%27%20AND%20mainbuildingid_ismainbuilding%20%3D%20%27Yes%27&key=4SmWiZd7GWsvQqZGGq1FjZGe3LnBYT01",
+      "rel": "next",
+      "type": "application/geo+json",
+      "title": "Next page"
+    }
+  ],
+  "timeStamp": "2025-12-15T16:49:01.152520047Z",
+  "numberReturned": 3,
+  "features": [
+    {
+      "id": "000463c7-095b-472d-af18-a9170b9a5e9a",
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -2.5584714,
+              51.458449
+            ],
+            [
+              -2.558409,
+              51.4584619
+            ],
+            [
+              -2.5583557,
+              51.4583276
+            ],
+            [
+              -2.5583962,
+              51.4583214
+            ],
+            [
+              -2.5584155,
+              51.4583697
+            ],
+            [
+              -2.5584392,
+              51.4583661
+            ],
+            [
+              -2.5584714,
+              51.458449
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osid": "000463c7-095b-472d-af18-a9170b9a5e9a",
+        "theme": "Buildings",
+        "isinsite": true,
+        "changetype": "Modified Attributes",
+        "buildinguse": "Residential Accommodation",
+        "description": "Multiple Residential Accommodation",
+        "versiondate": "2025-12-04",
+        "connectivity": "End-Connected",
+        "physicalstate": "Built",
+        "primarysiteid": "808f3f65-c6f6-4220-8a31-abcbb9909c64",
+        "sitereference": [
+          {
+            "siteid": "808f3f65-c6f6-4220-8a31-abcbb9909c64",
+            "buildingid": "000463c7-095b-472d-af18-a9170b9a5e9a",
+            "buildingversiondate": "2025-12-04"
+          }
+        ],
+        "uprnreference": [
+          {
+            "uprn": 96265,
+            "buildingid": "000463c7-095b-472d-af18-a9170b9a5e9a",
+            "buildingversiondate": "2025-12-04"
+          },
+          {
+            "uprn": 204098,
+            "buildingid": "000463c7-095b-472d-af18-a9170b9a5e9a",
+            "buildingversiondate": "2025-12-04"
+          },
+          {
+            "uprn": 204099,
+            "buildingid": "000463c7-095b-472d-af18-a9170b9a5e9a",
+            "buildingversiondate": "2025-12-04"
+          }
+        ],
+        "mainbuildingid": null,
+        "numberoffloors": 3,
+        "basementpresence": "Not Present",
+        "buildingage_year": null,
+        "geometry_area_m2": 60.353,
+        "buildingpartcount": 1,
+        "height_updatedate": "2025-09-23",
+        "buildingage_period": "1870-1918",
+        "buildingage_source": "Verisk",
+        "connectivity_count": 1,
+        "containingsitecount": 1,
+        "geometry_updatedate": "2025-09-23",
+        "height_evidencedate": "2022-06-15",
+        "constructionmaterial": "Brick Or Block Or Stone",
+        "height_absolutemax_m": 35.1,
+        "height_absolutemin_m": 24.2,
+        "height_relativemax_m": 10.9,
+        "buildingpartreference": [
+          {
+            "buildingid": "000463c7-095b-472d-af18-a9170b9a5e9a",
+            "buildingpartid": "d607ec54-da90-4e15-ab55-5a0b912efa72",
+            "buildingversiondate": "2025-12-04"
+          }
+        ],
+        "numberoffloors_source": "Ordnance Survey",
+        "roofshapeaspect_shape": "Pitched",
+        "buildingage_updatedate": "2025-10-24",
+        "buildinguse_updatedate": "2025-09-23",
+        "description_updatedate": "2025-09-23",
+        "height_confidencelevel": "Moderate",
+        "versionavailabletodate": null,
+        "basementpresence_source": "Verisk",
+        "connectivity_updatedate": "2025-09-23",
+        "roofmaterial_updatedate": "2025-10-24",
+        "buildingage_evidencedate": "2018-02-10",
+        "physicalstate_updatedate": "2025-09-23",
+        "versionavailablefromdate": "2025-12-05T00:00:00Z",
+        "buildingage_capturemethod": "Remote Sensing Survey",
+        "height_absoluteroofbase_m": 29.7,
+        "height_relativeroofbase_m": 5.5,
+        "mainbuildingid_updatedate": "2025-09-23",
+        "numberoffloors_updatedate": "2025-07-04",
+        "roofmaterial_evidencedate": "2022-06-15",
+        "buildinguse_oslandusetiera": "Residential Accommodation",
+        "roofmaterial_capturemethod": "Automated Process",
+        "roofshapeaspect_updatedate": "2025-12-04",
+        "basementpresence_updatedate": "2025-10-24",
+        "constructionmaterial_source": "Verisk",
+        "numberoffloors_evidencedate": "2023-10-10",
+        "roofshapeaspect_areaflat_m2": 0.0,
+        "numberoffloors_capturemethod": "Automated Process",
+        "roofmaterial_primarymaterial": "Tile Or Stone Or Slate",
+        "roofshapeaspect_areatotal_m2": 74.1,
+        "roofshapeaspect_evidencedate": "2025-04-07",
+        "basementpresence_evidencedate": "2022-12-23",
+        "mainbuildingid_ismainbuilding": "Yes",
+        "roofshapeaspect_capturemethod": "Automated Process",
+        "basementpresence_capturemethod": "Automated Process",
+        "basementpresence_selfcontained": "Not Present",
+        "buildinguse_addresscount_other": 1,
+        "buildinguse_addresscount_total": 3,
+        "roofmaterial_greenroofpresence": "Not Present",
+        "roofshapeaspect_areapitched_m2": 74.1,
+        "constructionmaterial_updatedate": "2025-10-24",
+        "roofmaterial_solarpanelpresence": "Not Present",
+        "buildingage_thirdpartyprovenance": "Remote Sensed Manual Imagery Interpretation",
+        "roofmaterial_confidenceindicator": "Expected Data Output",
+        "constructionmaterial_evidencedate": "2023-07-21",
+        "roofshapeaspect_areafacingeast_m2": 0.0,
+        "roofshapeaspect_areafacingwest_m2": 0.0,
+        "constructionmaterial_capturemethod": "Third Party Unknown",
+        "roofshapeaspect_areafacingnorth_m2": 25.6,
+        "roofshapeaspect_areafacingsouth_m2": 8.1,
+        "buildinguse_addresscount_commercial": 0,
+        "roofshapeaspect_confidenceindicator": "Expected Data Output",
+        "buildinguse_addresscount_residential": 2,
+        "basementpresence_thirdpartyprovenance": "Infill Modelling",
+        "roofshapeaspect_areaindeterminable_m2": 0.0,
+        "roofshapeaspect_areafacingnortheast_m2": 0.0,
+        "roofshapeaspect_areafacingnorthwest_m2": 0.0,
+        "roofshapeaspect_areafacingsoutheast_m2": 28.8,
+        "roofshapeaspect_areafacingsouthwest_m2": 11.6,
+        "constructionmaterial_thirdpartyprovenance": "Domestic Energy Performance Certificate (England And Wales)"
+      }
+    },
+    {
+      "id": "00057851-95dd-48b8-b25e-ab860d4a8c42",
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -2.5605845,
+              51.4566262
+            ],
+            [
+              -2.5605315,
+              51.4566279
+            ],
+            [
+              -2.5605119,
+              51.4566286
+            ],
+            [
+              -2.5604984,
+              51.4565295
+            ],
+            [
+              -2.5605667,
+              51.4565264
+            ],
+            [
+              -2.5605778,
+              51.4566064
+            ],
+            [
+              -2.5605845,
+              51.4566262
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osid": "00057851-95dd-48b8-b25e-ab860d4a8c42",
+        "theme": "Buildings",
+        "isinsite": true,
+        "changetype": "New",
+        "buildinguse": "Residential Accommodation",
+        "description": "Mid-Terrace House",
+        "versiondate": "2025-03-11",
+        "connectivity": "Multi-Connected",
+        "physicalstate": "Built",
+        "primarysiteid": "b06de0b9-f765-4e2e-94cb-52b574cac33d",
+        "sitereference": [
+          {
+            "siteid": "b06de0b9-f765-4e2e-94cb-52b574cac33d",
+            "buildingid": "00057851-95dd-48b8-b25e-ab860d4a8c42",
+            "buildingversiondate": "2025-03-11"
+          }
+        ],
+        "uprnreference": [
+          {
+            "uprn": 100181,
+            "buildingid": "00057851-95dd-48b8-b25e-ab860d4a8c42",
+            "buildingversiondate": "2025-03-11"
+          }
+        ],
+        "mainbuildingid": null,
+        "numberoffloors": 2,
+        "basementpresence": "Not Present",
+        "buildingage_year": null,
+        "geometry_area_m2": 53.239,
+        "buildingpartcount": 1,
+        "height_updatedate": "2025-03-10",
+        "buildingage_period": "1870-1918",
+        "buildingage_source": "Verisk",
+        "connectivity_count": 2,
+        "containingsitecount": 1,
+        "geometry_updatedate": "2025-03-10",
+        "height_evidencedate": "2022-06-15",
+        "constructionmaterial": "Brick Or Block Or Stone",
+        "height_absolutemax_m": 33.5,
+        "height_absolutemin_m": 25.3,
+        "height_relativemax_m": 8.2,
+        "buildingpartreference": [
+          {
+            "buildingid": "00057851-95dd-48b8-b25e-ab860d4a8c42",
+            "buildingpartid": "0c22f059-bb60-474c-a28b-95d806f1bdaf",
+            "buildingversiondate": "2025-03-11"
+          }
+        ],
+        "numberoffloors_source": "Ordnance Survey",
+        "roofshapeaspect_shape": "Pitched",
+        "buildingage_updatedate": "2025-03-10",
+        "buildinguse_updatedate": "2025-03-10",
+        "description_updatedate": "2025-03-10",
+        "height_confidencelevel": "Moderate",
+        "versionavailabletodate": null,
+        "basementpresence_source": "Verisk",
+        "connectivity_updatedate": "2025-03-10",
+        "roofmaterial_updatedate": "2025-03-10",
+        "buildingage_evidencedate": "2018-02-10",
+        "physicalstate_updatedate": "2025-03-10",
+        "versionavailablefromdate": "2025-03-12T00:00:00Z",
+        "buildingage_capturemethod": "Remote Sensing Survey",
+        "height_absoluteroofbase_m": 29.6,
+        "height_relativeroofbase_m": 4.3,
+        "mainbuildingid_updatedate": "2025-03-10",
+        "numberoffloors_updatedate": "2025-03-10",
+        "roofmaterial_evidencedate": "2022-06-15",
+        "buildinguse_oslandusetiera": "Residential Accommodation",
+        "roofmaterial_capturemethod": "Automated Process",
+        "roofshapeaspect_updatedate": "2025-03-10",
+        "basementpresence_updatedate": "2025-03-10",
+        "constructionmaterial_source": "Verisk",
+        "numberoffloors_evidencedate": "2023-10-10",
+        "roofshapeaspect_areaflat_m2": 0.0,
+        "numberoffloors_capturemethod": "Automated Process",
+        "roofmaterial_primarymaterial": "Tile Or Stone Or Slate",
+        "roofshapeaspect_areatotal_m2": 60.6,
+        "roofshapeaspect_evidencedate": "2022-06-15",
+        "basementpresence_evidencedate": "2022-12-23",
+        "mainbuildingid_ismainbuilding": "Yes",
+        "roofshapeaspect_capturemethod": "Automated Process",
+        "basementpresence_capturemethod": "Automated Process",
+        "basementpresence_selfcontained": "Not Present",
+        "buildinguse_addresscount_other": 0,
+        "buildinguse_addresscount_total": 1,
+        "roofmaterial_greenroofpresence": "Not Present",
+        "roofshapeaspect_areapitched_m2": 60.6,
+        "constructionmaterial_updatedate": "2025-03-10",
+        "roofmaterial_solarpanelpresence": "Not Present",
+        "buildingage_thirdpartyprovenance": "Remote Sensed Manual Imagery Interpretation",
+        "roofmaterial_confidenceindicator": "Expected Data Output",
+        "constructionmaterial_evidencedate": "2016-12-12",
+        "roofshapeaspect_areafacingeast_m2": 0.0,
+        "roofshapeaspect_areafacingwest_m2": 15.0,
+        "constructionmaterial_capturemethod": "Third Party Unknown",
+        "roofshapeaspect_areafacingnorth_m2": 25.6,
+        "roofshapeaspect_areafacingsouth_m2": 20.0,
+        "buildinguse_addresscount_commercial": 0,
+        "roofshapeaspect_confidenceindicator": "Expected Data Output",
+        "buildinguse_addresscount_residential": 1,
+        "basementpresence_thirdpartyprovenance": "Infill Modelling",
+        "roofshapeaspect_areaindeterminable_m2": 0.0,
+        "roofshapeaspect_areafacingnortheast_m2": 0.0,
+        "roofshapeaspect_areafacingnorthwest_m2": 0.0,
+        "roofshapeaspect_areafacingsoutheast_m2": 0.0,
+        "roofshapeaspect_areafacingsouthwest_m2": 0.0,
+        "constructionmaterial_thirdpartyprovenance": "Domestic Energy Performance Certificate (England And Wales)"
+      }
+    },
+    {
+      "id": "0006a394-6019-4c10-8ac9-e67ece3bc925",
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -2.6087068,
+              51.4428024
+            ],
+            [
+              -2.6086289,
+              51.4428437
+            ],
+            [
+              -2.6086413,
+              51.442854
+            ],
+            [
+              -2.6085441,
+              51.4429044
+            ],
+            [
+              -2.6084998,
+              51.4428709
+            ],
+            [
+              -2.608677,
+              51.4427787
+            ],
+            [
+              -2.6087068,
+              51.4428024
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osid": "0006a394-6019-4c10-8ac9-e67ece3bc925",
+        "theme": "Buildings",
+        "isinsite": true,
+        "changetype": "Modified Attributes",
+        "buildinguse": "Residential Accommodation",
+        "description": "Mid-Terrace House",
+        "versiondate": "2025-12-05",
+        "connectivity": "Multi-Connected",
+        "physicalstate": "Built",
+        "primarysiteid": "5906ac3b-502b-4802-91ac-1f9d76983c12",
+        "sitereference": [
+          {
+            "siteid": "5906ac3b-502b-4802-91ac-1f9d76983c12",
+            "buildingid": "0006a394-6019-4c10-8ac9-e67ece3bc925",
+            "buildingversiondate": "2025-12-05"
+          }
+        ],
+        "uprnreference": [
+          {
+            "uprn": 118180,
+            "buildingid": "0006a394-6019-4c10-8ac9-e67ece3bc925",
+            "buildingversiondate": "2025-12-05"
+          }
+        ],
+        "mainbuildingid": null,
+        "numberoffloors": 2,
+        "basementpresence": "Not Present",
+        "buildingage_year": null,
+        "geometry_area_m2": 66.912,
+        "buildingpartcount": 1,
+        "height_updatedate": "2025-09-23",
+        "buildingage_period": "1870-1918",
+        "buildingage_source": "Verisk",
+        "connectivity_count": 2,
+        "containingsitecount": 1,
+        "geometry_updatedate": "2025-09-23",
+        "height_evidencedate": "2022-06-15",
+        "constructionmaterial": "Brick Or Block Or Stone",
+        "height_absolutemax_m": 24.6,
+        "height_absolutemin_m": 15.4,
+        "height_relativemax_m": 9.2,
+        "buildingpartreference": [
+          {
+            "buildingid": "0006a394-6019-4c10-8ac9-e67ece3bc925",
+            "buildingpartid": "2d26bd09-ad26-418c-838b-a2469b1f04eb",
+            "buildingversiondate": "2025-12-05"
+          }
+        ],
+        "numberoffloors_source": "Ordnance Survey",
+        "roofshapeaspect_shape": "Mixed",
+        "buildingage_updatedate": "2025-10-24",
+        "buildinguse_updatedate": "2025-09-23",
+        "description_updatedate": "2025-09-23",
+        "height_confidencelevel": "Moderate",
+        "versionavailabletodate": null,
+        "basementpresence_source": "Verisk",
+        "connectivity_updatedate": "2025-09-23",
+        "roofmaterial_updatedate": "2025-12-04",
+        "buildingage_evidencedate": "2018-02-10",
+        "physicalstate_updatedate": "2025-09-23",
+        "versionavailablefromdate": "2025-12-06T00:00:00Z",
+        "buildingage_capturemethod": "Remote Sensing Survey",
+        "height_absoluteroofbase_m": 21.6,
+        "height_relativeroofbase_m": 6.2,
+        "mainbuildingid_updatedate": "2025-09-23",
+        "numberoffloors_updatedate": "2025-07-04",
+        "roofmaterial_evidencedate": "2022-06-15",
+        "buildinguse_oslandusetiera": "Residential Accommodation",
+        "roofmaterial_capturemethod": "Automated Process",
+        "roofshapeaspect_updatedate": "2025-07-15",
+        "basementpresence_updatedate": "2025-10-24",
+        "constructionmaterial_source": "Verisk",
+        "numberoffloors_evidencedate": "2023-10-10",
+        "roofshapeaspect_areaflat_m2": 30.7,
+        "numberoffloors_capturemethod": "Automated Process",
+        "roofmaterial_primarymaterial": "Tile Or Stone Or Slate",
+        "roofshapeaspect_areatotal_m2": 72.5,
+        "roofshapeaspect_evidencedate": "2022-06-15",
+        "basementpresence_evidencedate": "2022-12-23",
+        "mainbuildingid_ismainbuilding": "Yes",
+        "roofshapeaspect_capturemethod": "Automated Process",
+        "basementpresence_capturemethod": "Automated Process",
+        "basementpresence_selfcontained": "Not Present",
+        "buildinguse_addresscount_other": 0,
+        "buildinguse_addresscount_total": 1,
+        "roofmaterial_greenroofpresence": "Not Present",
+        "roofshapeaspect_areapitched_m2": 41.8,
+        "constructionmaterial_updatedate": "2025-10-24",
+        "roofmaterial_solarpanelpresence": "Not Present",
+        "buildingage_thirdpartyprovenance": "Remote Sensed Manual Imagery Interpretation",
+        "roofmaterial_confidenceindicator": "Expected Data Output",
+        "constructionmaterial_evidencedate": "2018-02-10",
+        "roofshapeaspect_areafacingeast_m2": 0.0,
+        "roofshapeaspect_areafacingwest_m2": 0.0,
+        "constructionmaterial_capturemethod": "Automated Process",
+        "roofshapeaspect_areafacingnorth_m2": 0.0,
+        "roofshapeaspect_areafacingsouth_m2": 0.0,
+        "buildinguse_addresscount_commercial": 0,
+        "roofshapeaspect_confidenceindicator": "Expected Data Output",
+        "buildinguse_addresscount_residential": 1,
+        "basementpresence_thirdpartyprovenance": "Infill Modelling",
+        "roofshapeaspect_areaindeterminable_m2": 0.0,
+        "roofshapeaspect_areafacingnortheast_m2": 24.9,
+        "roofshapeaspect_areafacingnorthwest_m2": 5.2,
+        "roofshapeaspect_areafacingsoutheast_m2": 0.0,
+        "roofshapeaspect_areafacingsouthwest_m2": 11.7,
+        "constructionmaterial_thirdpartyprovenance": "Infill Modelling"
+      }
+    }
+  ]
 }
+]
+
