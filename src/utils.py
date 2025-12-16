@@ -33,7 +33,7 @@ def get_properties_from_os(list_of_buildings):
 
     return list_of_properties
 
-def set_address(property):
+def set_missing_addresses(property):
     response = os_places_api_call(property.uprn)
     if response and response.get('results'):
         property.address = response['results'][0]['DPA']['ADDRESS']
@@ -81,6 +81,7 @@ def get_attributes_from_epc(properties):
 
     for p in properties:
         if str(p.uprn) in uprn_to_epc_data:
+            p.address = uprn_to_epc_data[str(p.uprn)]["address"]
             p.epc_rating = uprn_to_epc_data[str(p.uprn)]["rating"]
             p.epc_score = uprn_to_epc_data[str(p.uprn)]["score"]
             p.energy_usage = uprn_to_epc_data[str(p.uprn)]["consumption"]
