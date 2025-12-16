@@ -31,7 +31,7 @@ OS_API_KEY
 - create a new project on datahub with OS Places API and OS NGD Features API 
 - copy the project key into .env  
 
-# To run app
+# To run the app
 
 ```shell
 flask run
