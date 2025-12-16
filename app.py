@@ -31,17 +31,20 @@ def set_property_data(council_code, council_bbox):
         "key": OS_KEY,
         "filter": "buildinguse_oslandusetiera = 'Residential Accommodation' AND mainbuildingid_ismainbuilding = 'Yes'",
         "bbox": council_bbox,
-        # "offset": 100,
+        "offset": 100,
          }
     
     global properties
     
+    # links = os_api_call(HEADERS, PARAMS)["links"]
+    # print(links[1]["href"])
+    
     list_of_buildings = os_api_call(HEADERS, PARAMS)["features"]
+    
     print(len(list_of_buildings))
     print(list_of_buildings[0]["id"])
-    # print(list_of_buildings[0].get("id"))
     sys.stdout.flush()
-    sys.stdout.flush()
+    
     properties = get_properties_from_os(list_of_buildings)
     properties = filter_properties_by_council_code(council_code, properties)
     properties = get_attributes_from_epc(properties)
