@@ -34,10 +34,7 @@
               {% for prop in properties %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" id="{{ prop.uprn }}">
-                  <!-- {% if not prop.address %}
-                  {% else %} -->
                     {{ prop.address }}
-                  <!-- {% endif %} -->
                 </td>
                 <td class="govuk-table__cell">{{ prop.score }}</td>
                 <td class="govuk-table__cell">
