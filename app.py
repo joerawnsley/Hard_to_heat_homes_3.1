@@ -34,6 +34,7 @@ def set_property_data(council_code, council_bbox):
     properties = get_properties_from_os(list_of_buildings)
     properties = filter_properties_by_council_code(council_code, properties)
     properties = get_attributes_from_epc(properties)
+    properties = remove_blank_addresses(properties)
 
     for i in range(len(properties)):
         properties[i].calculate_score()
