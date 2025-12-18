@@ -6,9 +6,9 @@ WARM_MATERIALS = ["Brick Or Block Or Stone", "Contrete"]
 class Property():
     def __init__(self, uprn):
         self.uprn = uprn
-        self.owner_name = ''
-        self.owner_type = ''
-        self.company_reg_number = ''
+        self.owner_name = 'Unknown'
+        self.owner_type = 'Unknown'
+        self.company_reg_number = 'Unknown'
         self.epc_rating = 'No Rating Found'
         self.epc_score = 'No Score Found'
         self.address = ''

@@ -82,12 +82,14 @@
                     <th scope="row" class="govuk-table__header">Proprietor Type</th>
                     <td class="govuk-table__cell">{{property.owner_type}}</td>
                   </tr>
+                  {% if property.company_reg_num is defined %}
                   <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Company Number:</th>
                     <td class="govuk-table__cell">
                       <a href="https://find-and-update.company-information.service.gov.uk/company/{{property.company_reg_num}}">{{property.company_reg_num}}</a>
                     </td>
                   </tr>
+                  {% endif %}
                 </tbody>
               </table>
               
