@@ -16,7 +16,10 @@ class BuildingCollection:
     def produce_list(self):
         list_of_buildings = []
         while self.pages > 0:
-            list_of_buildings += os_api_call(BuildingCollection.HEADERS, self.params)["features"]
-            self.pages -= 1
-            self.params["offset"] += 100 
+            try:
+                list_of_buildings += os_api_call(BuildingCollection.HEADERS, self.params)["features"]
+                self.pages -= 1
+                self.params["offset"] += 100
+            except (KeyError, TypeError):
+                list_of_buildings = []
         return list_of_buildings
