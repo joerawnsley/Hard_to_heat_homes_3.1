@@ -122,4 +122,6 @@ const scoreIconsHover = {
     }
 }
 
-window.onload = initMap;
+document.addEventListener("DOMContentLoaded", () => {
+  initMap();
+});

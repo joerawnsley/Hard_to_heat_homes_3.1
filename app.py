@@ -1,10 +1,12 @@
 import os
+import sys
 from flask import Flask, render_template, request, redirect, url_for, session
 from src.os_api import os_api_call
 from src.utils import get_properties_from_os, get_attributes_from_epc
 from src.variables import OS_KEY
 from src.council_data_utils import get_bbox_for_council_code, filter_properties_by_council_code
 from src.generate_heat_map import generate_heat_map
+from src.building_collection import BuildingCollection
 
 app = Flask(__name__)
 
@@ -25,16 +27,10 @@ def login():
     return render_template("login.html")
 
 def set_property_data(council_code, council_bbox):
-    HEADERS = {"Accept": "application/json"}
-    PARAMS = {
-        "key": OS_KEY,
-        "filter": "buildinguse_oslandusetiera = 'Residential Accommodation' AND mainbuildingid_ismainbuilding = 'Yes'",
-        "bbox": council_bbox,
-         }
+    
+    list_of_buildings = BuildingCollection(council_bbox, 3).produce_list()
     
     global properties
-    
-    list_of_buildings = os_api_call(HEADERS, PARAMS)["features"]
     properties = get_properties_from_os(list_of_buildings)
     properties = filter_properties_by_council_code(council_code, properties)
     properties = get_attributes_from_epc(properties)
@@ -45,8 +41,13 @@ def set_property_data(council_code, council_bbox):
 
 @app.route("/home")
 def home():
-   heat_map = generate_heat_map(session.get("council_code"))
-   return render_template("home.html", properties=properties, key=OS_KEY, heat_map=heat_map)
+    council_code = session.get("council_code")
+    if council_code and not properties:
+        council_bbox = get_bbox_for_council_code(council_code)
+        set_property_data(council_code, council_bbox)
+
+    heat_map = generate_heat_map(council_code)
+    return render_template("home.html", properties=properties, key=OS_KEY, heat_map=heat_map)
 
 @app.route("/<int:uprn>")
 def property(uprn):
