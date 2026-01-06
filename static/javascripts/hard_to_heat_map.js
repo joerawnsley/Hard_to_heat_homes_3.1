@@ -10,13 +10,14 @@ function initMap() {
         attribution: "&copy; OpenStreetMap",
     }).addTo(map);
 
-fetch('/static/data/exeter_postcodes_shapefile.json')
+fetch('/static/data/exeter_postcodes_with_epc.json')
   .then(response => response.json())
   .then(data => {
     L.geoJSON(data, {
       style: { color: "#ff7800", weight: 2 },
       onEachFeature: function (feature, layer) {
-        layer.bindPopup("Postcode: " + feature.properties.postcode);
+        epc = feature.properties.epc_score? feature.properties.epc_score : "unknown"
+        layer.bindPopup("Postcode: " + feature.properties.postcode + "<br>" + "Average EPC Score: " + epc);
       }
     }).addTo(map);
   });
