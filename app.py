@@ -28,7 +28,7 @@ def login():
 
 def set_property_data(council_code, council_bbox):
     
-    list_of_buildings = BuildingCollection(council_bbox, 3).produce_list()
+    list_of_buildings = BuildingCollection(council_bbox, 1).produce_list()
     
     global properties
     properties = get_properties_from_os(list_of_buildings)
