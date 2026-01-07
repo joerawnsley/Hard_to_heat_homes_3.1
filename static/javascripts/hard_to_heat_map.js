@@ -14,18 +14,45 @@ function initMap() {
         .then((response) => response.json())
         .then((data) => {
             L.geoJSON(data, {
-                style: function(feature) {
-                    switch (feature.properties.epc_score) {
-                        case "50": return {
-                    color: "#3cff00ff",
-                    weight: 2,
+                style: function (feature) {
+                    const epc_score = Number(feature.properties.epc_score);
+                    console.log("epc score is.... ", epc_score);
+                    if (isNaN(epc_score))
+                        return {
+                            color: "#c1c1c1ff",
+                            weight: 2,
+                        };
+
+                    if (epc_score >= 80) {
+                        console.log("score is 80+");
+                        return {
+                            color: "#00ff95ff",
+                            weight: 2,
+                        };
                     }
-                        case undefined: return {
-                    color: "#ff7800",
-                    weight: 2,
+                    if (epc_score >= 60) {
+                        console.log("score is 60+");
+                        return {
+                            color: "#d4ff00ff",
+                            weight: 2,
+                        };
                     }
+                    if (epc_score >= 40) {
+                        console.log("score is 40+");
+                        return {
+                            color: "#ffbb00ff",
+                            weight: 2,
+                        };
+                    }
+                    if (epc_score < 40) {
+                        console.log("score is under 40");
+                        return {
+                            color: "#ff0000ff",
+                            weight: 2,
+                        };
                     }
                 },
+
                 onEachFeature: function (feature, layer) {
                     epc = feature.properties.epc_score
                         ? feature.properties.epc_score
