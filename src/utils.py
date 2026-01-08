@@ -51,6 +51,7 @@ def get_attributes_from_epc(properties):
         uprn_to_address_batch = {row["uprn"]: 
                                 {
                                 "address": f"{row["address"]}, {row["county"]}, {row['postcode']}",
+                                "postcode": row['postcode'],
                                 "rating": f"{row["current-energy-rating"]}",
                                 "score": f"{row["current-energy-efficiency"]}",
                                 "consumption": f"{row["energy-consumption-current"]}"
@@ -62,6 +63,7 @@ def get_attributes_from_epc(properties):
     for p in properties:
         if str(p.uprn) in uprn_to_epc_data:
             p.address = uprn_to_epc_data[str(p.uprn)]["address"]
+            p.postcode = uprn_to_epc_data[str(p.uprn)]["postcode"]
             p.epc_rating = uprn_to_epc_data[str(p.uprn)]["rating"]
             p.epc_score = uprn_to_epc_data[str(p.uprn)]["score"]
             p.energy_usage = uprn_to_epc_data[str(p.uprn)]["consumption"]
