@@ -1,2 +1,20 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
-*
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Flask cache / temporary files
+instance/
+*.sqlite3
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# Optional: cache folders
+cache/
