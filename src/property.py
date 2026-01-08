@@ -41,8 +41,8 @@ class Property():
         if self.age <= MINIMUM_FAILING_AGE and self.age > 0:
             score += 1
 
-        if score < 0 or score > 4:
-            self.score = None
+        if score < 1 or score > 4:
+            self.score = 0
         else:
             self.score = score
         
