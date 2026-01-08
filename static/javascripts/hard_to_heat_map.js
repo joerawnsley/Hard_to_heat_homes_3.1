@@ -2,7 +2,7 @@ let map;
 
 function initMap() {
     const firstProp = mapData.props[0];
-    map = L.map("map").setView([firstProp.lat, firstProp.long], 13);
+    map = L.map("map").setView([51.463907, -2.584353], 17);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
