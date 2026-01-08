@@ -40,16 +40,6 @@ def set_property_data(council_code, council_bbox):
     heat_map = generate_heat_map(council_code)
     return render_template("home.html", properties=properties, key=OS_KEY, heat_map=heat_map)
 
-# @app.route("/home")
-# def home():
-#     council_code = session.get("council_code")
-#     if council_code and not properties:
-#         council_bbox = get_bbox_for_council_code(council_code)
-#         set_property_data(council_code, council_bbox)
-
-#     heat_map = generate_heat_map(council_code)
-#     return render_template("home.html", properties=properties, key=OS_KEY, heat_map=heat_map)
-
 @app.route("/<int:uprn>")
 def property(uprn):
     
