@@ -36,7 +36,7 @@ def get_properties_from_os(list_of_buildings):
     return list_of_properties
 
 def get_attributes_from_epc(properties):
-    uprns = [p.uprn for p in properties]
+    uprns = [prop.uprn for prop in properties]
     
     uprn_to_epc_data = {}
     batch_size = 50
@@ -78,19 +78,10 @@ def remove_blank_addresses(properties):
     return filtered_addresses
 
 def normalise_address(addr: str) -> str:
+    county = 'bristol'
     addr = addr.lower()
-
-    # removing county names to make matching more consistent
-    counties = ["kent", "tunbridge wells", "surrey", "east hampshire", "hampshire", 'bristol']
-    
-    for c in counties:
-        # \b is word boundary e.g \bkent\b matches 'kent' but not 'kentish'
-        addr = re.sub(rf"\b{c}\b", "", addr)
-
-    # ^ (not) \w (alphanumeric) or \s (whitespace) in [] (group of characters)
-    # replace anything not alphanumeric or whitespace with ""
+    addr = re.sub(rf"\b{county}\b", "", addr)
     addr = re.sub(r"[^\w\s]", "", addr)
-
     return " ".join(addr.split())
 
 def match_property_to_ccod(csv_path: str, property: property):
