@@ -1,70 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="govuk-width-container" >
-    <div class="govuk-grid-row">
-      <h1 class="govuk-heading-l">Hard to Heat Homes</h1>
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <h1 class="govuk-heading-l">Hard to Heat Homes</h1>
     <div id="leaflet-container">
       <div id="map"></div>
       <div id="map-legend">
         <strong>Hard to Heat Score</strong><br>
-        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" width="15"> Easy (1)<br>
-        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png" width="15"> 2<br>
-        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png" width="15"> 3<br>
-        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" width="15"> Hard (4)
+        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png"
+          width="15"> Easy (1)<br>
+        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png"
+          width="15"> 2<br>
+        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png"
+          width="15"> 3<br>
+        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png"
+          width="15"> Hard (4)
       </div>
     </div>
-    <div id="heatmap-container" class="hidden">
-      {% if heat_map %}
-      <img src="{{ heat_map }}" alt="Plot"/>
-      {% else %}
-      <p>No data found for this area at the specified time.</p>
-      {% endif %}
-    </div>
-          </div>
-        </div>
-      </div>
+  </div>
+</div>
+</div>
 
-  {% block scripts %}
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js" crossorigin="anonymous"></script>
-  <script defer>
-    $(document).ready(function() {
-      $("#data").DataTable({
-        paging: true,
-        pageLength: 25,
-        order: [],
-        ordering: true,
-        columnDefs: [{
-          orderable: false,
-          targets: "no-sort"
-        }]
-      });
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js" crossorigin="anonymous"></script>
+<script defer>
+  $(document).ready(function () {
+    $("#data").DataTable({
+      paging: true,
+      pageLength: 25,
+      order: [],
+      ordering: true,
+      columnDefs: [{
+        orderable: false,
+        targets: "no-sort"
+      }]
     });
-  </script>
+  });
+</script>
 <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""></script>
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  <script>
-    const mapData = {
-        props: [
-            {% for p in properties %}
-            {
-                uprn: "{{ p.uprn }}",
-                lat: {{ p.lat }},
-                long: {{ p.long }},
-                score: {{ p.score if p.score is not none else 0 }},
-                address: "{{ p.address or '' }}"
-            }{% if not loop.last %},{% endif %}
-            {% endfor %}
+<script>
+  const mapData = {
+    props: [
+      {% for p in properties %}
+  {
+    uprn: "{{ p.uprn }}",
+      lat: { { p.lat } },
+    long: { { p.long } },
+    score: { { p.score if p.score is not none else 0 } },
+    address: "{{ p.address or '' }}"
+  } {% if not loop.last %}, {% endif %}
+  {% endfor %}
         ],
-        apiKey: "{{ key }}"
+  apiKey: "{{ key }}"
     };
 </script>
 <script src="{{ url_for('static', filename='javascripts/bristol_streets_map.js') }}"></script>
-  {% endblock %}
 {% endblock %}
-
-
-
+{% endblock %}
