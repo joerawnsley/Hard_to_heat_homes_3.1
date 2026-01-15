@@ -17,7 +17,6 @@ function initMap() {
             streetLayer = L.geoJSON(data, {
                 style: function (feature) {
                     const epc_score = Number(feature.properties.epc_score);
-                    console.log("epc score is.... ", epc_score);
                     if (isNaN(epc_score))
                         return {
                             color: "#c1c1c1ff",
@@ -25,28 +24,24 @@ function initMap() {
                         };
 
                     if (epc_score >= 80) {
-                        console.log("score is 80+");
                         return {
                             color: "#00ff95ff",
                             weight: 2,
                         };
                     }
                     if (epc_score >= 60) {
-                        console.log("score is 60+");
                         return {
                             color: "#d4ff00ff",
                             weight: 2,
                         };
                     }
                     if (epc_score >= 40) {
-                        console.log("score is 40+");
                         return {
                             color: "#ffbb00ff",
                             weight: 2,
                         };
                     }
                     if (epc_score < 40) {
-                        console.log("score is under 40");
                         return {
                             color: "#ff0000ff",
                             weight: 2,
@@ -73,7 +68,7 @@ function initMap() {
                 },
             }).addTo(map);
         })
-        .catch(err => console.log("Error loading GeoJSON", err));
+        .catch(() => console.error("Something went wrong!"));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
