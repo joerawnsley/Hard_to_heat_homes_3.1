@@ -51,16 +51,17 @@ function initMap() {
                         ? feature.properties.average_epc_score
                         : "unknown";
                     layer.bindPopup(
-                        "Number of buildings: 30" +
+                        "Number of buildings: " +
+                            feature.properties.buildings_count +
                             "<br>" +
                         "Address: " +
-                            feature.properties.address +
+                            feature.properties['addr:street'] +
                             "<br>" +
                         "Postcode: " +
-                            feature.properties.postcode +
+                            feature.properties['addr:postcode'] +
                             "<br>" +
                         "Average EPC Score: " +
-                            epc_score
+                            feature.properties.epc_score
                     );
                 },
             }).addTo(map);

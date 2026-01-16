@@ -7,4 +7,3 @@ OS_KEY = os.getenv("OS_API_KEY")
 
 OS_BASE_URL = "https://api.os.uk/features/ngd/ofa/v1/collections/bld-fts-building-4/items?"
 EPC_BASE_URL = 'https://epc.opendatacommunities.org/api/v1/domestic/search?'
-
