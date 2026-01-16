@@ -47,12 +47,17 @@ function initMap() {
                 },
 
                 onEachFeature: function (feature, layer) {
-                    epc_score = feature.properties.average_epc_score
-                        ? feature.properties.average_epc_score
-                        : "unknown";
+                    buildings_count = feature.properties.buildings_count
+                        ? feature.properties.buildings_count
+                        : "N/A";
+                    
+                    epc_score = feature.properties.epc_score
+                        ? feature.properties.epc_score
+                        : "N/A";
+                        
                     layer.bindPopup(
                         "Number of buildings: " +
-                            feature.properties.buildings_count +
+                            buildings_count +
                             "<br>" +
                         "Address: " +
                             feature.properties['addr:street'] +
@@ -61,7 +66,7 @@ function initMap() {
                             feature.properties['addr:postcode'] +
                             "<br>" +
                         "Average EPC Score: " +
-                            feature.properties.epc_score
+                            epc_score
                     );
                 },
             }).addTo(map);
